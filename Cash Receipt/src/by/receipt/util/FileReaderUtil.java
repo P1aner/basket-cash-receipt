@@ -1,4 +1,4 @@
-package by.receipt;
+package by.receipt.util;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -15,12 +15,9 @@ public class FileReaderUtil {
             while ((insert = reader.readLine()) != null) {
                 list.add(insert);
             }
-
         } catch (IOException e) {
             e.getStackTrace();
         }
         return list;
     }
-
-
 }

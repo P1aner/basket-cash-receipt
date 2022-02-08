@@ -1,20 +1,20 @@
 package by.receipt;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import by.receipt.model.Receipt;
+
+import by.receipt.services.DiscountCardRepositoryCreator;
+import by.receipt.services.ProductRepositoryCreator;
+
 
 public class CheckRunner {
+    public static String BASKET_WAY = "C:\\Users\\pavel\\IdeaProjects\\Cash Receipt\\resourses\\Basket.csv";
+
     public static void main(String[] args) {
-        for (String arg : args) {
-            System.out.println(arg);
-        }
 
-        List<ArrayList<Object>> basket = Basket.getBasket("1.txt", "3.txt");
-        DiscountCard card = Basket.getDiscountCard("3.txt", "2.txt");
+        ProductRepositoryCreator.create("C:\\Users\\pavel\\IdeaProjects\\Cash Receipt\\resourses\\Products.csv");
+        DiscountCardRepositoryCreator.create("C:\\Users\\pavel\\IdeaProjects\\Cash Receipt\\resourses\\DiscountCard.csv");
 
-
-
-
-
+        Receipt.printReceipt();
     }
 }
