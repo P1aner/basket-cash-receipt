@@ -8,12 +8,12 @@ import by.receipt.services.ProductRepositoryCreator;
 
 
 public class CheckRunner {
-    public static String BASKET_WAY = "C:\\Users\\pavel\\IdeaProjects\\Cash Receipt\\resourses\\Basket.csv";
+    public static String BASKET_WAY = "./resources/Basket.csv";
 
     public static void main(String[] args) {
 
-        ProductRepositoryCreator.create("C:\\Users\\pavel\\IdeaProjects\\Cash Receipt\\resourses\\Products.csv");
-        DiscountCardRepositoryCreator.create("C:\\Users\\pavel\\IdeaProjects\\Cash Receipt\\resourses\\DiscountCard.csv");
+        ProductRepositoryCreator.create("./resources/Products.csv");
+        DiscountCardRepositoryCreator.create("./resources/DiscountCard.csv");
 
         Receipt.printReceipt();
     }
