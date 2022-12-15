@@ -1,0 +1,8 @@
+rootProject.name = 'Cash_Receipt'
+include 'model'
+include 'repository'
+include 'app'
+include 'api'
+include 'services'
+include 'utils'
+
