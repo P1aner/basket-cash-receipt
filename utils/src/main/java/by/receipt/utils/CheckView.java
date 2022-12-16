@@ -1,8 +1,10 @@
 package by.receipt.utils;
 
+import org.springframework.stereotype.Service;
+
 import java.io.FileWriter;
 import java.io.IOException;
-
+@Service
 public class CheckView {
     public void consolePrint(String string) {
         System.out.println(string);

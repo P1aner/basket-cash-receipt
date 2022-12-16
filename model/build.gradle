@@ -13,5 +13,6 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
     implementation 'javax.persistence:javax.persistence-api:2.2'
+
 }
 

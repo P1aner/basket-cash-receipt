@@ -19,12 +19,13 @@ public class BasketService {
     @Autowired
     BasketRepository basketRepository;
 
-    public void createBasket(List<BasketItem> basketItems, DiscountCard discountCard) {
+    public Basket createBasket(List<BasketItem> basketItems, DiscountCard discountCard) {
         Basket basket = new Basket();
         basket.setBasketItemList(basketItems);
         basket.setDiscountCard(discountCard);
         basket.setPrice(calculateOrderPrice(basketItems));
         basketRepository.save(basket);
+        return basket;
     }
 
 

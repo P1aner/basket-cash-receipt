@@ -10,15 +10,14 @@ repositories {
 }
 
 dependencies {
+    implementation project(':model')
+    implementation project(':services')
+    implementation project(':repository')
+    implementation project(':utils')
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
-
-    implementation 'org.springframework:spring-core:5.3.24'
-    implementation 'org.springframework:spring-beans:5.3.24'
     implementation 'org.springframework:spring-context:5.3.24'
-
-
-
+    implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.7.6'
 
 }
 

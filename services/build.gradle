@@ -20,6 +20,7 @@ dependencies {
     implementation 'org.springframework:spring-context:5.3.24'
     implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.7.6'
 
+
 }
 
 test {
