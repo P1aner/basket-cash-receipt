@@ -30,9 +30,7 @@ public class BasketItem extends DomainEntity {
 
     @Override
     public String toString() {
-        return "BasketItem{" +
-                "id=" + this.getId() +
-                "product=" + product +
+        return "{product=" + product +
                 ", count=" + count +
                 '}';
     }

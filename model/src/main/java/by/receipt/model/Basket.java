@@ -24,11 +24,11 @@ public class Basket extends DomainEntity {
 
     @Override
     public String toString() {
-        return "Basket{" +
-                "id=" + this.getId() +
-                "basketItemList=" + basketItemList +
+        return "\nBasket: " +
+                "{id=" + this.getId() +
                 ", discountCard=" + discountCard +
                 ", price=" + price +
-                '}';
+                "\nbasketItemList=[" + basketItemList +
+                "]}";
     }
 }

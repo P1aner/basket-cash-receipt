@@ -11,7 +11,7 @@ repositories {
 
 dependencies {
     implementation project(':model')
-    implementation project(':services')
+    implementation project(':api')
     implementation project(':repository')
     implementation project(':utils')
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'

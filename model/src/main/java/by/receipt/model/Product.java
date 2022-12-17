@@ -25,9 +25,9 @@ public class Product extends DomainEntity {
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "Product:{" +
                 "id=" + this.getId() +
-                "name='" + name + '\'' +
+                ", name='" + name + '\'' +
                 ", price=" + price +
                 ", status=" + status +
                 '}';

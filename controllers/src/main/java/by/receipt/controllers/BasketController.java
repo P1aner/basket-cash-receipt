@@ -1,13 +1,14 @@
 package by.receipt.controllers;
 
+import by.receipt.api.controllers.IBasketController;
+import by.receipt.api.services.IBasketService;
+import by.receipt.api.services.ICheckService;
 import by.receipt.model.Basket;
 import by.receipt.model.BasketItem;
 import by.receipt.model.DiscountCard;
 import by.receipt.model.Product;
 import by.receipt.repository.DiscountCardRepository;
 import by.receipt.repository.ProductRepository;
-import by.receipt.services.BasketService;
-import by.receipt.services.CheckService;
 import by.receipt.utils.CheckView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,12 +20,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class BasketController {
-    private static final Logger log = LoggerFactory.getLogger(BasketController.class);
+public class BasketController implements IBasketController {
+    private static final Logger log = LoggerFactory.getLogger(IBasketController.class);
     @Autowired
-    private BasketService basketService;
+    private IBasketService basketService;
     @Autowired
-    private CheckService checkService;
+    private ICheckService checkService;
     @Autowired
     private CheckView checkView;
     @Autowired
@@ -32,14 +33,14 @@ public class BasketController {
     @Autowired
     private ProductRepository productRepository;
 
+    @Override
     public void printReceipt(String[] args) {
         List<BasketItem> basketItems = new ArrayList<>();
         DiscountCard discountCard = null;
-       // String[] args = string.split(" ");/todo
         for (int i = 0; i < args.length - 1; i++) {
             splitStringItem(basketItems, args[i]);
-
         }
+
         String[] strings = args[args.length - 1].split("-");
         if (strings[0].equals("card")) {
             int i = Integer.parseInt(strings[1]);
@@ -54,6 +55,7 @@ public class BasketController {
         }
         Basket basket = basketService.createBasket(basketItems, discountCard);
         String check = checkService.getCheck(basket);
+
         checkView.filePrint(check);
         checkView.consolePrint(check);
     }

@@ -1,7 +1,10 @@
 package by.receipt.services;
 
+import by.receipt.api.services.IBasketService;
+import by.receipt.api.services.ICheckService;
 import by.receipt.model.Basket;
 import by.receipt.model.BasketItem;
+import by.receipt.model.enums.DiscountStatus;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,15 +13,15 @@ import java.text.DecimalFormat;
 
 @Service
 @AllArgsConstructor
-public class CheckService {
+public class CheckService implements ICheckService {
     @Autowired
-    private BasketService basketService;
+    private IBasketService basketService;
 
     static final String TITLE = "CASH RECEIPT\n";
     static final String HEAD = "QTY | DESCRIPTION | PRICE | TOTAL\n";
     static final String DELIMETR = "-----------------------------------\n";
 
-
+    @Override
     public String getCheck(Basket basket) {
         StringBuilder stringBuilder = new StringBuilder();
 
@@ -31,8 +34,13 @@ public class CheckService {
             String name = basketItem.getProduct().getName();
             double price = basketItem.getProduct().getPrice();
             Double totalPrice = basketService.calculateBasketItemPrice(basketItem);
-            String format = String.format("%s | %s | %s | %s\n", itemCount, name, price, totalPrice);
+            String format = String.format("%s | %s | %s | %s", itemCount, name, price, totalPrice);
             stringBuilder.append(format);
+            if (itemCount >= 5 && basketItem.getProduct().getStatus().equals(DiscountStatus.DISCOUNT)) {
+                stringBuilder.append(" discount 10%\n");
+            } else {
+                stringBuilder.append("\n");
+            }
         }
         stringBuilder.append(DELIMETR);
         String formatTax = String.format("TAXABLE TOT: %s\n", decimalFormat.format(basket.getPrice()));
