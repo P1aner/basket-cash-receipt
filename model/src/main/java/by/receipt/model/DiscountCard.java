@@ -1,6 +1,5 @@
 package by.receipt.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -9,10 +8,16 @@ import javax.persistence.Table;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 //@NoArgsConstructor
 @Entity
 @Table(name = "discount_cards")
 public class DiscountCard extends DomainEntity {
 
+    public DiscountCard(int id) {
+        super(id);
+    }
+
+    public DiscountCard() {
+    }
 }
