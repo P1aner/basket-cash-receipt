@@ -15,11 +15,15 @@ dependencies {
     implementation project(':repository')
     implementation project(':utils')
     implementation project(':services')
+
+    implementation 'org.springframework.data:spring-data-jpa:2.7.6'
+    implementation 'org.slf4j:slf4j-api:1.7.0'
+    implementation 'ch.qos.logback:logback-classic:1.2.11'
+    implementation 'ch.qos.logback:logback-core:1.2.11'
+
+    testImplementation 'org.mockito:mockito-junit-jupiter:4.10.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
-    implementation 'org.springframework:spring-context:5.3.24'
-    implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.7.6'
-    testImplementation 'org.mockito:mockito-junit-jupiter:4.10.0'
 }
 
 test {

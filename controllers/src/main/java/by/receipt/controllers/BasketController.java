@@ -1,6 +1,8 @@
 package by.receipt.controllers;
 
 import by.receipt.api.controllers.IBasketController;
+import by.receipt.api.services.IBasketService;
+import by.receipt.api.services.ICheckService;
 import by.receipt.model.Basket;
 import by.receipt.model.BasketItem;
 import by.receipt.model.DiscountCard;
@@ -23,9 +25,9 @@ import java.util.Optional;
 public class BasketController implements IBasketController {
     private static final Logger log = LoggerFactory.getLogger(BasketController.class);
     @Autowired
-    private BasketService basketService;
+    private IBasketService basketService;
     @Autowired
-    private CheckService checkService;
+    private ICheckService checkService;
     @Autowired
     private CheckView checkView;
     @Autowired

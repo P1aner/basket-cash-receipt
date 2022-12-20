@@ -5,14 +5,12 @@ import by.receipt.api.services.ICheckService;
 import by.receipt.model.Basket;
 import by.receipt.model.BasketItem;
 import by.receipt.model.enums.DiscountStatus;
-import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.DecimalFormat;
 
 @Service
-@NoArgsConstructor
 public class CheckService implements ICheckService {
     @Autowired
     private IBasketService basketService;
@@ -23,6 +21,9 @@ public class CheckService implements ICheckService {
 
     public CheckService(IBasketService basketService) {
         this.basketService = basketService;
+    }
+
+    public CheckService() {
     }
 
     @Override
