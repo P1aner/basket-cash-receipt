@@ -20,6 +20,14 @@ public class BasketService implements IBasketService {
     @Autowired
     private BasketRepository basketRepository;
 
+    public BasketService(double percent, BasketRepository basketRepository) {
+        this.percent = percent;
+        this.basketRepository = basketRepository;
+    }
+
+    public BasketService() {
+    }
+
     @Override
     public Basket createBasket(List<BasketItem> basketItems, DiscountCard discountCard) {
         Basket basket = new Basket();
@@ -34,7 +42,7 @@ public class BasketService implements IBasketService {
     private double calculateOrderPrice(List<BasketItem> basketItems) {
         double price = 0;
         for (BasketItem basketItem : basketItems) {
-            calculateBasketItemPrice(basketItem);
+            price += calculateBasketItemPrice(basketItem);
         }
         return price;
     }

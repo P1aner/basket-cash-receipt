@@ -1,14 +1,14 @@
 package by.receipt.controllers;
 
 import by.receipt.api.controllers.IBasketController;
-import by.receipt.api.services.IBasketService;
-import by.receipt.api.services.ICheckService;
 import by.receipt.model.Basket;
 import by.receipt.model.BasketItem;
 import by.receipt.model.DiscountCard;
 import by.receipt.model.Product;
 import by.receipt.repository.DiscountCardRepository;
 import by.receipt.repository.ProductRepository;
+import by.receipt.services.BasketService;
+import by.receipt.services.CheckService;
 import by.receipt.utils.CheckView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,17 +21,28 @@ import java.util.Optional;
 
 @Component
 public class BasketController implements IBasketController {
-    private static final Logger log = LoggerFactory.getLogger(IBasketController.class);
+    private static final Logger log = LoggerFactory.getLogger(BasketController.class);
     @Autowired
-    private IBasketService basketService;
+    private BasketService basketService;
     @Autowired
-    private ICheckService checkService;
+    private CheckService checkService;
     @Autowired
     private CheckView checkView;
     @Autowired
     private DiscountCardRepository discountCardRepository;
     @Autowired
     private ProductRepository productRepository;
+
+    public BasketController(BasketService basketService, CheckService checkService, CheckView checkView, DiscountCardRepository discountCardRepository, ProductRepository productRepository) {
+        this.basketService = basketService;
+        this.checkService = checkService;
+        this.checkView = checkView;
+        this.discountCardRepository = discountCardRepository;
+        this.productRepository = productRepository;
+    }
+
+    public BasketController() {
+    }
 
     @Override
     public void printReceipt(String[] args) {

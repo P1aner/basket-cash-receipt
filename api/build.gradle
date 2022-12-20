@@ -11,10 +11,5 @@ repositories {
 
 dependencies {
     implementation project(':model')
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
-}
-
-test {
-    useJUnitPlatform()
+    implementation 'org.springframework:spring-context:5.3.24'
 }

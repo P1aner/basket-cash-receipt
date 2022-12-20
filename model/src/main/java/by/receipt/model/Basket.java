@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
-//@Data
 @Setter
 @Getter
 @AllArgsConstructor

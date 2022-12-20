@@ -5,14 +5,14 @@ import by.receipt.api.services.ICheckService;
 import by.receipt.model.Basket;
 import by.receipt.model.BasketItem;
 import by.receipt.model.enums.DiscountStatus;
-import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.DecimalFormat;
 
 @Service
-@AllArgsConstructor
+@NoArgsConstructor
 public class CheckService implements ICheckService {
     @Autowired
     private IBasketService basketService;
@@ -20,6 +20,10 @@ public class CheckService implements ICheckService {
     static final String TITLE = "CASH RECEIPT\n";
     static final String HEAD = "QTY | DESCRIPTION | PRICE | TOTAL\n";
     static final String DELIMETR = "-----------------------------------\n";
+
+    public CheckService(IBasketService basketService) {
+        this.basketService = basketService;
+    }
 
     @Override
     public String getCheck(Basket basket) {

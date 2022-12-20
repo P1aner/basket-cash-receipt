@@ -23,6 +23,13 @@ public class Product extends DomainEntity {
     @Enumerated(EnumType.STRING)
     private DiscountStatus status;
 
+    public Product(Integer id, String name, double price, DiscountStatus status) {
+        super(id);
+        this.name = name;
+        this.price = price;
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Product:{" +

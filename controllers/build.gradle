@@ -14,11 +14,12 @@ dependencies {
     implementation project(':api')
     implementation project(':repository')
     implementation project(':utils')
+    implementation project(':services')
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
     implementation 'org.springframework:spring-context:5.3.24'
     implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.7.6'
-
+    testImplementation 'org.mockito:mockito-junit-jupiter:4.10.0'
 }
 
 test {
