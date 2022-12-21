@@ -37,9 +37,9 @@ class BasketServiceTest {
         list.add(basketItem2);
         list.add(basketItem3);
         list.add(basketItem4);
-        DiscountCard discountCard = new DiscountCard(1);
+        DiscountCard discountCard = new DiscountCard(1, 0.10);
         Basket basket = basketService.createBasket(list, discountCard);
-        Assertions.assertEquals(basket.getPrice(), 210.0);
+        Assertions.assertEquals(basket.getPrice(), 189.0);
     }
 
     @Test
@@ -62,11 +62,11 @@ class BasketServiceTest {
         List<BasketItem> list = new ArrayList<>();
         BasketItem basketItem1 = new BasketItem(new Product("Apple", 10, DiscountStatus.DISCOUNT), 10);
         list.add(basketItem1);
-        DiscountCard discountCard = new DiscountCard(1);
+        DiscountCard discountCard = new DiscountCard(1, 0.10);
         Basket basket = basketService.createBasket(list, discountCard);
         Mockito.verify(basketRepository, Mockito.times(1)).save(basket);
         Assertions.assertEquals(basket.getBasketItemList(), list);
         Assertions.assertEquals(basket.getDiscountCard(), discountCard);
-        Assertions.assertEquals(basket.getPrice(), 90.0);
+        Assertions.assertEquals(basket.getPrice(), 81.0);
     }
 }

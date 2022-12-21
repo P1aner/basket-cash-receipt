@@ -19,7 +19,7 @@ public class BasketItem extends DomainEntity {
     private Product product;
     @Column(name = "count")
     private Integer count;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "basket_id")
     private Basket basket;
 

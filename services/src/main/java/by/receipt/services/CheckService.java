@@ -48,6 +48,10 @@ public class CheckService implements ICheckService {
             }
         }
         stringBuilder.append(DELIMETR);
+        if (basket.getDiscountCard() != null) {
+            String discountCardId = String.format("DISCOUNT CARD №%s, PERCENT:%s%%\n",basket.getDiscountCard().getId(), basket.getDiscountCard().getPercentDiscount()*100);
+            stringBuilder.append(discountCardId);
+        }
         String formatTax = String.format("TAXABLE TOT: %s\n", decimalFormat.format(basket.getPrice()));
         stringBuilder.append(formatTax);
         String formatVAT = String.format("VAT 7%%: %s\n", decimalFormat.format(basket.getPrice() * 0.07));

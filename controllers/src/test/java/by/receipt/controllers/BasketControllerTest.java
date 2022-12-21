@@ -53,7 +53,7 @@ class BasketControllerTest {
     void printReceiptWithCard() {
         Product product1 = new Product(1, "Apple", 10.0, DiscountStatus.DISCOUNT);
         Product product2 = new Product(2, "Apple", 10.0, DiscountStatus.DISCOUNT);
-        DiscountCard discountCard = new DiscountCard(1);
+        DiscountCard discountCard = new DiscountCard(1, 0.05);
         Mockito.when(productRepository.findById(1)).thenReturn(Optional.of(product1));
         Mockito.when(productRepository.findById(2)).thenReturn(Optional.of(product2));
         Mockito.when(discountCardRepository.findById(1)).thenReturn(Optional.of(discountCard));

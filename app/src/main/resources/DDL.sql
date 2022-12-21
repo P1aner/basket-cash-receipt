@@ -10,7 +10,8 @@ CREATE TABLE public.products (
 );
 
 CREATE TABLE public.discount_cards ( 
-    id SERIAL PRIMARY KEY 
+    id SERIAL PRIMARY KEY,
+    percent_discount double precision
 );
 
 CREATE TABLE public.baskets ( 

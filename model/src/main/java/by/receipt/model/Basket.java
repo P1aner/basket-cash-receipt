@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "baskets")
 public class Basket extends DomainEntity {
-    @OneToMany(mappedBy = "basket", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "basket", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<BasketItem> basketItemList;
     @ManyToOne
     @JoinColumn(name = "discount_card_id")

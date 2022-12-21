@@ -33,16 +33,19 @@ public class BasketService implements IBasketService {
         Basket basket = new Basket();
         basket.setBasketItemList(basketItems);
         basket.setDiscountCard(discountCard);
-        basket.setPrice(calculateOrderPrice(basketItems));
+        basket.setPrice(calculateOrderPrice(basketItems, discountCard));
         basketRepository.save(basket);
         return basket;
     }
 
 
-    private double calculateOrderPrice(List<BasketItem> basketItems) {
+    private double calculateOrderPrice(List<BasketItem> basketItems, DiscountCard discountCard) {
         double price = 0;
         for (BasketItem basketItem : basketItems) {
             price += calculateBasketItemPrice(basketItem);
+        }
+        if (discountCard != null) {
+            price *= 1.0 - discountCard.getPercentDiscount();
         }
         return price;
     }

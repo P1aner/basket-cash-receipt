@@ -26,6 +26,7 @@ The set of parameters is specified in the format: __productId-quantity__
 >1 | Cherry | 21.1 | 21.1   
 >5 | Coconut | 11.5 | 51.75 discount 10%   
 >-----------------------------------   
->TAXABLE TOT: 72,85   
->VAT 7%: 5,1   
->TOTAL: 77,95   
+>DISCOUNT CARD №2, PERCENT:1.0%  
+>TAXABLE TOT: 72,12  
+>VAT 7%: 5,05  
+>TOTAL: 77,17
