@@ -1,4 +1,4 @@
-#Cash receipt 
+#Cash receipt  
 Application created on Java 11.
 
 >## Main stack:
@@ -19,7 +19,7 @@ The set of parameters is specified in the format: __productId-quantity__
 - __quantity__ - Quantity of product.  
   After that, the generated check is displayed in the console and in the file.
 
->##Example of cash receipt:
+>##Example of cash receipt:  
 >CASH RECEIPT  
 >QTY | DESCRIPTION | PRICE | TOTAL  
 >-----------------------------------  
