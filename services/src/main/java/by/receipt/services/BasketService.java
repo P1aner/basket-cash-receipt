@@ -34,6 +34,9 @@ public class BasketService implements IBasketService {
         basket.setBasketItemList(basketItems);
         basket.setDiscountCard(discountCard);
         basket.setPrice(calculateOrderPrice(basketItems, discountCard));
+        for (int i = 0; i<basket.getBasketItemList().size();i++){
+            basket.getBasketItemList().get(i).setBasket(basket);
+        }
         basketRepository.save(basket);
         return basket;
     }

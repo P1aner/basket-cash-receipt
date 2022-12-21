@@ -65,7 +65,7 @@ class CheckServiceTest {
                 "10 | Apple | 10.0 | 90.0 discount 10%\n" +
                 "10 | Apple | 10.0 | 100.0\n" +
                 "-----------------------------------\n" +
-                "DISCOUNT CARD №1, PERCENT:10.0%\n" +
+                "DISCOUNT CARD #1, PERCENT:10.0%\n" +
                 "TAXABLE TOT: 171\n" +
                 "VAT 7%: 11,97\n" +
                 "TOTAL: 182,97\n";

@@ -49,7 +49,7 @@ public class CheckService implements ICheckService {
         }
         stringBuilder.append(DELIMETR);
         if (basket.getDiscountCard() != null) {
-            String discountCardId = String.format("DISCOUNT CARD №%s, PERCENT:%s%%\n",basket.getDiscountCard().getId(), basket.getDiscountCard().getPercentDiscount()*100);
+            String discountCardId = String.format("DISCOUNT CARD #%s, PERCENT:%s%%\n",basket.getDiscountCard().getId(), basket.getDiscountCard().getPercentDiscount()*100);
             stringBuilder.append(discountCardId);
         }
         String formatTax = String.format("TAXABLE TOT: %s\n", decimalFormat.format(basket.getPrice()));
