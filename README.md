@@ -12,7 +12,7 @@ Application created on Java 11.
 >- Mockito  
 ## Example of use:  
 ```
-java CheckRunner <1-1 2-5 card-2>  
+java CheckRunner 1-1 2-5 card-2  
 ```
 The set of parameters is specified in the format: __productId-quantity__   
 - __productId__ - Product ID.  
