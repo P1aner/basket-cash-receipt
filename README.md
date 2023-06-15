@@ -30,3 +30,20 @@ The set of parameters is specified in the format: __productId-quantity__
 >TAXABLE TOT: 72,12  
 >VAT 7%: 5,05  
 >TOTAL: 77,17
+
+## Example of use REST:
+```
+http://localhost:8080//check?discountCardId=1&itemId=1&itemId=1
+```
+The set of parameters is specified in the format: __itemId=quantity__
+- __itemId__ - Product ID.
+- __quantity__ - Quantity of product.    
+- __discountCardId__ - Discount Card ID.
+- __id__ - Card ID. 
+
+After that, the generated check is displayed in the browser.
+
+```
+http://localhost:8080//jsoncheck?discountCardId=1&itemId=1&itemId=1
+```
+Generated json check is displayed in the browser.

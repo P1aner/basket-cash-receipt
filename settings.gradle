@@ -1,10 +1,1 @@
-rootProject.name = 'Cash_Receipt'
-include 'model'
-include 'repository'
-include 'app'
-include 'api'
-include 'services'
-include 'utils'
-include 'controllers'
-include 'api'
-
+rootProject.name = 'cash_receipt'
