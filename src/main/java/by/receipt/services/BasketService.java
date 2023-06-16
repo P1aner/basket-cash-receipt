@@ -19,7 +19,7 @@ import static by.receipt.model.enums.DiscountStatus.DISCOUNT;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BasketService implements IBasketService {
-    @Value("${percentDiscount}")
+    @Value("${app.percentDiscount}")
     private double percent;
     @Autowired
     private BasketRepository basketRepository;

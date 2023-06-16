@@ -42,37 +42,21 @@ public class BasketControllerRest {
     public String getCheck(
             @RequestParam("discountCardId") Integer cardId,
             @RequestParam("itemId") List<Integer> list) {
-        Map<Integer, Long> frequency =
-                list.stream().collect(Collectors.groupingBy(
-                        Function.identity(), Collectors.counting()));
-        List<BasketItem> basketItems = new ArrayList<>();
-        DiscountCard discountCard = null;
-        Optional<DiscountCard> byId = discountCardRepository.findById(cardId);
-        if (byId.isPresent()) {
-            discountCard = byId.get();
-        } else {
-            log.warn("discount card is not find");
-        }
-        for (Map.Entry<Integer, Long> entry : frequency.entrySet()) {
-            Integer key = (Integer) entry.getKey();
-            Long value = entry.getValue();
-
-            Optional<Product> byIdProduct = productRepository.findById(key);
-            if (byIdProduct.isPresent()) {
-                basketItems.add(new BasketItem(byIdProduct.get(), Integer.parseInt(String.valueOf(value))));
-            } else {
-                log.warn("product is not find");
-            }
-        }
-        Basket basket = basketService.createBasket(basketItems, discountCard);
+        Basket basket = getBasket(cardId, list);
         String check = checkService.getCheck(basket);
         return check;
     }
+
 
     @GetMapping("/jsoncheck")
     public Basket getJSonCheck(
             @RequestParam("discountCardId") Integer cardId,
             @RequestParam("itemId") List<Integer> list) {
+        Basket basket = getBasket(cardId, list);
+        return basket;
+    }
+
+    private Basket getBasket(Integer cardId, List<Integer> list) {
         Map<Integer, Long> frequency =
                 list.stream().collect(Collectors.groupingBy(
                         Function.identity(), Collectors.counting()));
@@ -85,7 +69,7 @@ public class BasketControllerRest {
             log.warn("discount card is not find");
         }
         for (Map.Entry<Integer, Long> entry : frequency.entrySet()) {
-            Integer key = (Integer) entry.getKey();
+            Integer key = entry.getKey();
             Long value = entry.getValue();
 
             Optional<Product> byIdProduct = productRepository.findById(key);

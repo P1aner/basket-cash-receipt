@@ -15,7 +15,7 @@ import java.io.IOException;
 @NoArgsConstructor
 public class CheckView {
     private static final Logger log = LoggerFactory.getLogger(CheckView.class);
-    @Value("${filePath}")
+    @Value("${app.filePath}")
     private String path;
 
 

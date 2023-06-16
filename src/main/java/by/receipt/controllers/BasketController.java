@@ -41,6 +41,7 @@ public class BasketController implements IBasketController {
     public void printReceipt(String[] args) {
         List<BasketItem> basketItems = new ArrayList<>();
         DiscountCard discountCard = null;
+
         for (int i = 0; i < args.length - 1; i++) {
             splitStringItem(basketItems, args[i]);
         }

@@ -29,15 +29,15 @@ public class JavaConfig {
     private static final String PROP_HIBERNATE_CONNECTION_POOL_SIZE = "db.hibernate.connection.pool_size";
 
     @Resource
-    private Environment env;
+    private Environment environment;
 
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(env.getRequiredProperty(PROP_DATABASE_DRIVER));
-        dataSource.setUrl(env.getRequiredProperty(PROP_DATABASE_URL));
-        dataSource.setUsername(env.getRequiredProperty(PROP_DATABASE_USERNAME));
-        dataSource.setPassword(env.getRequiredProperty(PROP_DATABASE_PASSWORD));
+        dataSource.setDriverClassName(environment.getRequiredProperty(PROP_DATABASE_DRIVER));
+        dataSource.setUrl(environment.getRequiredProperty(PROP_DATABASE_URL));
+        dataSource.setUsername(environment.getRequiredProperty(PROP_DATABASE_USERNAME));
+        dataSource.setPassword(environment.getRequiredProperty(PROP_DATABASE_PASSWORD));
         return dataSource;
     }
 
@@ -45,7 +45,7 @@ public class JavaConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource());
-        entityManagerFactoryBean.setPackagesToScan(env.getRequiredProperty(PROP_ENTITYMANAGER_PACKAGES_TO_SCAN));
+        entityManagerFactoryBean.setPackagesToScan(environment.getRequiredProperty(PROP_ENTITYMANAGER_PACKAGES_TO_SCAN));
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         entityManagerFactoryBean.setJpaVendorAdapter(vendorAdapter);
         entityManagerFactoryBean.setJpaProperties(additionalProperties());
@@ -54,10 +54,10 @@ public class JavaConfig {
 
     Properties additionalProperties() {
         Properties properties = new Properties();
-        properties.setProperty("hibernate.hbm2ddl.auto", env.getRequiredProperty(PROP_HIBERNATE_HBM2DDL_AUTO));
-        properties.setProperty("hibernate.dialect", env.getRequiredProperty(PROP_HIBERNATE_DIALECT));
-        properties.setProperty("hibernate.show_sql", env.getRequiredProperty(PROP_HIBERNATE_SHOW_SQL));
-        properties.setProperty("hibernate.connection.pool_size", env.getRequiredProperty(PROP_HIBERNATE_CONNECTION_POOL_SIZE));
+        properties.setProperty("hibernate.hbm2ddl.auto", environment.getRequiredProperty(PROP_HIBERNATE_HBM2DDL_AUTO));
+        properties.setProperty("hibernate.dialect", environment.getRequiredProperty(PROP_HIBERNATE_DIALECT));
+        properties.setProperty("hibernate.show_sql", environment.getRequiredProperty(PROP_HIBERNATE_SHOW_SQL));
+        properties.setProperty("hibernate.connection.pool_size", environment.getRequiredProperty(PROP_HIBERNATE_CONNECTION_POOL_SIZE));
         return properties;
     }
 

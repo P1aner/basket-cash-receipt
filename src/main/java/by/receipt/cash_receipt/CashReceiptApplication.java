@@ -16,11 +16,11 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 public class CashReceiptApplication {
 
-	public static void main(String[] args) {
-		ConfigurableApplicationContext context = SpringApplication.run(CashReceiptApplication.class, args);
+    public static void main(String[] args) {
+        ConfigurableApplicationContext context = SpringApplication.run(CashReceiptApplication.class, args);
 
-		IBasketController bean = context.getBean(IBasketController.class);
-		bean.printReceipt(args);
-	}
+        IBasketController bean = context.getBean(IBasketController.class);
+        bean.printReceipt(args);
+    }
 
 }
